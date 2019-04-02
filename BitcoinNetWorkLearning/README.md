@@ -7,12 +7,12 @@
 ###相关数据结构
 数据结构部分只提取一些区块链世界较为普遍使用的结构或类似结构，挖坑相关的并未解析，后续可能会以POW机制相关的形式单独分析。
 ### What 
-####区块
+#### 区块
 区块大体分为两个部分，区块头和区块体。
 
 区块头存储父块哈希，当前时间戳（timestamp），随机数，默克尔树（Merkle tree）根结点。
 
-####区块链
+#### 区块链
 由于每一个区块头存有上一个区块的哈希，在逻辑上所有区块成链式结构链接，所有区块链链接在一起即称为区块链。
 在实际存储时，将区块索引顺序存储在一起，见数据结构中CChain类。
 
@@ -23,7 +23,7 @@
 #### merkleblock
 默克尔树区块，用于响应SPV节点请求验证路径时的返回数据。
 
-####节点
+#### 节点
 比特币网络节点主体分为全节点和轻量级节点/SPV（Simplified Payment Verification）节点。
 全节点需要同步所有的区块信息，即拥有完整区块链账本的节点，全节点能够独立自主地校验所有交易，而不需借由任何外部参照。
 SPV节点仅同步所有区块的区块头信息，不可以校验交易，只能验证支付。
@@ -35,7 +35,7 @@ SPV节点仅同步所有区块的区块头信息，不可以校验交易，只�
 
 ### Why
 
-####区块
+#### 区块
 区块大体分为区块头和区块体，主要是由于区块体中包含交易相关信息，数据量相对庞大，
 为了便于验证交易，将区块头和区块体拆开，用户可以通过只加载区块头来完成验证相关的基本操作，降低节点存储负担。
 #### 默克尔树（Merkle tree）
@@ -47,7 +47,7 @@ Merkel tree是区块链世界非常重要的一个底层区块使用的数据结
 默克尔树区块，用于响应SPV节点请求验证路径时的返回数据。当SPV节点进行验证请求验证路径时，
 #### 事务/交易（Transactions）
 比特币网络是设计用来解决电子现金交易过程中的第三方问题的，其本身就是一个交易系统设计，故最小单元为一次交易。
-####节点
+#### 节点
 全节点作为比特币网络数据承载的物理单位，是比特币网络中最为重要的基本成员。
 在比特币网络中，所有的全节点是平等的，具有同等的权利（记账和竞争挖矿），
 其作用在于实现共识和通过庞大的数量来保证网络安全和去中心化可信。
@@ -83,7 +83,7 @@ CTxOut类（部分数据定义）：
 | nValue      | 64   |   CAmount     |    交易输出    |
 | scriptPubKey|   Varies   |   CScript   |    收款公钥    |
 
-####区块 2019.03.29
+#### 区块 2019.03.29
 [源码定义](https://github.com/bitcoin/bitcoin/blob/master/src/primitives/block.h)
 其设计实现主要分为CBlockHeader类，CBlock类，下面是CBlock类（部分数据定义）：
 
@@ -105,7 +105,7 @@ CBlockHeader类（部分数据定义）：
 | nBits| uint32_t   |    挖坑难度    |
 | nNonce|   uint32_t   |  随机数  |
 
-####区块链 2019.03.29
+#### 区块链 2019.03.29
 [源码定义](https://github.com/bitcoin/bitcoin/blob/master/src/primitives/chain.h)
 其设计实现主要分为CBlockFileInfo类，CBlockIndex类，CDiskBlockIndex类，CChain类。
 
@@ -156,7 +156,7 @@ CBlockFileInfo类（部分数据定义）：
 | nTimeFirst| uint64_t   |    该文件中最早的区块时间    |
 | nTimeLast|   uint64_t   |  该文件中最后的区块时间  |
 
-####默克尔树（Merkle tree）/merkleblock 2019.04.02
+#### 默克尔树（Merkle tree）/merkleblock 2019.04.02
 [源码定义](https://github.com/bitcoin/bitcoin/blob/master/src/merkleblock.h)
 其设计实现主要分为CPartialMerkleTree类，CMerkleBlock类。
 
