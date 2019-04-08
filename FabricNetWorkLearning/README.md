@@ -178,6 +178,7 @@ CMerkleBlock类（部分数据定义）：
 | vMatchedTxn|   vector<std::pair<unsigned int, uint256> >   |  布隆筛选符合的交易  |
 
 
+
 ### 补充
 #### 布隆过滤器(Bloom Filter)
 算法：
